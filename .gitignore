@@ -1,0 +1,4 @@
+venv
+.idea
+filesstore/media/UploadedFiles
+db.sqlite3
