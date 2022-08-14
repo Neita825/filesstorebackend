@@ -15,9 +15,9 @@ class DownloadFile(APIView):
         else:
             file = models.File.objects.get(url=request.path.strip("/"), user=request.user.id, revision=revision)
         filename = file.fileName
-        headers = {'Access-Control-Expose-Headers': 'Content-Disposition, filename'}
+        headers = {'Access-Control-Expose-Headers': 'Content-Disposition'}
         response = HttpResponse(file.uploadedFile, content_type='application/force-download', headers=headers)
         response['Content-Disposition'] = 'attachment; filename=%s' % filename
-        response['filename'] = filename
+
 
         return response
